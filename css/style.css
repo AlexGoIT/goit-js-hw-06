@@ -1,0 +1,19 @@
+.menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.gallery {
+  list-style: none;
+  text-decoration: none;
+  display: block;
+}
+.gallery-image {
+  width: 300px;
+  height: auto;
+}
