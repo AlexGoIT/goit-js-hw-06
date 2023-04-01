@@ -15,7 +15,10 @@ function handleSubmit(e) {
   } else {
     formData.email = email.value;
     formData.password = password.value;
+    
     console.log(formData);
+
+    e.currentTarget.reset();
   }
 }
 
