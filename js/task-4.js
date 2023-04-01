@@ -3,12 +3,16 @@ const decBtn = document.querySelector('[data-action="decrement"]');
 const valueEl = document.querySelector('#value');
 let counterValue = 0;
 
+function updateUI() {
+  valueEl.textContent = counterValue;
+}
+
 incBtn.addEventListener('click', () => {
   counterValue += 1;
-  valueEl.textContent = counterValue;
+  updateUI();
 });
 
 decBtn.addEventListener('click', () => {
   counterValue -= 1;
-  valueEl.textContent = counterValue;
+  updateUI();
 });
