@@ -1,5 +1,4 @@
 const form = document.querySelector(".login-form");
-const submitBtn = form.querySelector("button[type='submit']");
 
 function handleSubmit(e) {
   e.preventDefault();
