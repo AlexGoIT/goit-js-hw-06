@@ -1,7 +1,9 @@
-const inputAmount = document.querySelector('input');
-const createBtn = document.querySelector('[data-create]');
-const destroyBtn = document.querySelector('[data-destroy]');
-const outputBoxes = document.querySelector('#boxes');
+const inputAmount = document.querySelector("input");
+const createBtn = document.querySelector("[data-create]");
+const destroyBtn = document.querySelector("[data-destroy]");
+const outputBoxes = document.querySelector("#boxes");
+
+let lastSize = 30;
 
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215)
@@ -9,22 +11,38 @@ function getRandomHexColor() {
     .padStart(6, 0)}`;
 }
 
-function createBox(size) {
-  const box = document.createElement('div');
+function generateBox(size) {
+  const box = document.createElement("div");
   box.style.width = `${size}px`;
   box.style.height = `${size}px`;
+  box.style.borderRadius = "4px";
   box.style.backgroundColor = getRandomHexColor();
 
   return box;
 }
 
 function createBoxes(amount) {
+  const boxList = [];
+  for (let n = 0; n < amount; n++) {
+    const box = generateBox(lastSize);
+    lastSize += 10;
+    boxList.push(box);
+  }
 
+  outputBoxes.append(...boxList);
 }
 
-function destroyBoxes() {
-  outputBoxes.innerHTML = '';
-}
+createBtn.addEventListener("click", () => {
+  const amount = inputAmount.value;
+  if (amount !== "") {
+    createBoxes(Number(amount));
+  } else {
+    alert("Введіть кількість елементів");
+  }
+});
 
-createBtn.addEventListener('click', createBoxes);
-destroyBtn.addEventListener('click', destroyBoxes);
+destroyBtn.addEventListener("click", () => {
+  outputBoxes.innerHTML = "";
+  inputAmount.value = "";
+  lastSize = 30;
+});

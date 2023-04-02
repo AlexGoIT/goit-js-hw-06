@@ -29,3 +29,11 @@ img {
 #validation-input.invalid {
   border-color: #f44336;
 }
+
+#boxes {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+}
