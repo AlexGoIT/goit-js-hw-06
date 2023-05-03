@@ -16,7 +16,7 @@ function generateBox(size) {
   box.style.width = `${size}px`;
   box.style.height = `${size}px`;
   box.style.borderRadius = "4px";
-  box.style.backgroundColor = getRandomHexColor();
+  box.style.backgroundColor = getRandomHexColor(); // #FFFFFF
 
   return box;
 }
